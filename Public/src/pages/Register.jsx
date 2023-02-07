@@ -28,6 +28,12 @@ function Register() {
     <ToastContainer />
 
     const navigate = useNavigate()
+    useEffect(() => {
+        if (localStorage.getItem("chat-app-user")) {
+            navigate("/")
+        }
+    }, [])
+
 
     const [values, setValues] = useState({
         username: "",
@@ -47,13 +53,7 @@ function Register() {
             })
             if (data.status === false) toast.error("err creat user")
             else {
-                const resolveAfter3Sec = new Promise(success => setTimeout(success, 1000));
-                toast.promise(
-                    resolveAfter3Sec,
-                    {
-                        success: 'dont creat user 👌',
-                    }
-                )
+                localStorage.setItem("chat-app-user", JSON.stringify(data.user))
                 navigate("/")
             }
         }
