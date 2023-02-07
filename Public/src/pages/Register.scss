@@ -1,0 +1,61 @@
+body {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    align-items: center;
+    background-color: rgba(0, 254, 254, 0.261);
+
+    .brand {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        justify-content: center;
+        margin: 2rem 0;
+
+        img {
+            height: 5rem;
+        }
+
+        h1 {
+            color: white;
+            text-transform: uppercase;
+        }
+
+
+
+    }
+
+
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        background-color: #354447;
+        padding: 3rem 5rem;
+        border-radius: 1rem;
+
+
+
+        input {
+            background-color: transparent;
+            padding: 1rem;
+            border: 0.1rem solid #0ec7ffba;
+            color: white;
+            font-size: 1rem;
+
+        }
+
+        button {
+            background-color: #67dcff8a;
+            padding: 0.5rem;
+
+
+        }
+    }
+
+
+
+}
