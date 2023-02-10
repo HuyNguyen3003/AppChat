@@ -39,3 +39,45 @@ module.exports.login = async (req, res, next) => {
 
 
 }
+module.exports.avatar = async (req, res, next) => {
+    try {
+        const { isAvatar, avatarImg } = req.body
+        const userId = req.params.id
+
+        const user = await User.findByIdAndUpdate(userId, {
+            isAvatar, avatarImg
+        })
+
+        return res.json({
+            isSet: user.isAvatar,
+            avatar: avatarImg
+        })
+
+
+    } catch (e) {
+        console.log(e)
+        next(e)
+    }
+
+
+}
+
+
+
+module.exports.alluser = async (req, res, next) => {
+    try {
+        const userId = req.params.id
+        const user = await User.find({ _id: { $ne: userId } }).select([
+            "email", "username", "avatarImg", "_id"
+        ])
+        return res.json(user)
+
+
+
+    } catch (e) {
+        console.log(e)
+        next(e)
+    }
+
+
+}

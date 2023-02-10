@@ -1,0 +1,18 @@
+ .Container {
+     height: 100vh;
+     width: 100vw;
+     background-color: rgb(118, 255, 250);
+     display: grid;
+     grid-template-columns: 25% 75%;
+     height: 100vh;
+     width: 100vw;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     gap: 1rem;
+     align-items: center;
+
+
+
+
+ }

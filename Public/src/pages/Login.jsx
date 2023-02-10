@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { json, Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../assets/logo.png"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import "./Login.scss"
 import axios from "axios"
 import { loginRoute } from "../utils/APIroutes";
 
@@ -73,24 +72,27 @@ function Login() {
     }
 
     return (<>
+        <div className="Container">
+            <div className="brand">
+                <img src={logo} alt="" />
+                <h1>ZillChat</h1>
 
-        <div className="brand">
-            <img src={logo} alt="" />
-            <h1>ZillChat</h1>
+            </div>
+            <form onSubmit={(e) => handSubmit(e)}>
 
+                <input type="email" placeholder="email" name="email" onChange={(e) => handleChange(e)} />
+                <input type="password" placeholder="password" name="password" onChange={(e) => handleChange(e)} />
+                <button type="submit" >Login</button>
+
+                <span>Register ? <Link to="/register">regiser</Link></span>
+
+
+
+            </form>
+            <ToastContainer />
         </div>
-        <form onSubmit={(e) => handSubmit(e)}>
-
-            <input type="email" placeholder="email" name="email" onChange={(e) => handleChange(e)} />
-            <input type="password" placeholder="password" name="password" onChange={(e) => handleChange(e)} />
-            <button type="submit" >Login</button>
-
-            <span>Register ? <Link to="/register">regiser</Link></span>
 
 
-
-        </form>
-        <ToastContainer />
 
 
 

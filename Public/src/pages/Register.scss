@@ -1,4 +1,4 @@
-body {
+.Container {
     height: 100vh;
     width: 100vw;
     display: flex;
@@ -55,6 +55,36 @@ body {
 
         }
     }
+
+    .Avatars {
+        display: flex;
+
+        .avatar {
+            margin: 2rem;
+            border-radius: 4rem;
+
+
+
+            img {
+                height: 6rem;
+            }
+
+            &.selected {
+                border: 0.2rem solid #fe0000;
+            }
+
+        }
+    }
+
+    button {
+        font-size: 1.8rem;
+        padding: 0.3rem;
+        color: black;
+        background-color: aquamarine;
+    }
+
+
+
 
 
 

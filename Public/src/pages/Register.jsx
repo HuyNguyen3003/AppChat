@@ -86,35 +86,45 @@ function Register() {
 
     }
 
-    return (<>
+    return (
+        <>
+            <div className="Container">
 
-        <div className="brand">
-            <img src={logo} alt="" />
-            <h1>ZillChat</h1>
+                <div className="brand">
+                    <img src={logo} alt="" />
+                    <h1>ZillChat</h1>
 
-        </div>
-        <form onSubmit={(e) => handSubmit(e)}>
+                </div>
+                <form onSubmit={(e) => handSubmit(e)}>
 
-            <input type="text" placeholder="Username" name="username" onChange={(e) => handleChange(e)} />
-            <input type="email" placeholder="email" name="email" onChange={(e) => handleChange(e)} />
-            <input type="password" placeholder="password" name="password" onChange={(e) => handleChange(e)} />
-            <input type="password" placeholder="ConfirmPassword" name="confirmpassword" onChange={(e) => handleChange(e)} />
-            <button type="submit" >Creat User</button>
+                    <input type="text" placeholder="Username" name="username" onChange={(e) => handleChange(e)} />
+                    <input type="email" placeholder="email" name="email" onChange={(e) => handleChange(e)} />
+                    <input type="password" placeholder="password" name="password" onChange={(e) => handleChange(e)} />
+                    <input type="password" placeholder="ConfirmPassword" name="confirmpassword" onChange={(e) => handleChange(e)} />
+                    <button type="submit" >Creat User</button>
 
-            <span>already have an account ? <Link to="/login">login</Link></span>
-
-
-
-        </form>
-        <ToastContainer />
+                    <span>already have an account ? <Link to="/login">login</Link></span>
 
 
 
+                </form>
+
+            </div>
+            <ToastContainer />
 
 
 
-    </>
+        </>
+
+
+
+
+
+
+
+
     )
 }
+
 
 export default Register
