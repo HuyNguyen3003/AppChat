@@ -6,12 +6,19 @@ import styled from "styled-components"
 import { allUserRouter } from "../utils/APIroutes";
 import Contacts from "../component/Contacts"
 import Welcome from "../component/Welcome";
+import ChatComponent from "../component/ChatConponent";
+import LogOut from "../component/LogOut";
+
+
+
 
 function Chat() {
 
     const [contacts, setcontacts] = useState([])
     const [currentUser, setcurrentUser] = useState(undefined)
     const [selecContacts, setselecContacts] = useState(undefined)
+    const [isLoading, setisLoading] = useState(false)
+
 
     const navigate = useNavigate()
 
@@ -23,6 +30,7 @@ function Chat() {
     useEffect(() => {
         const getUser = async () => {
             setcurrentUser(await JSON.parse(localStorage.getItem("chat-app-user")))
+            setisLoading(true)
         }
         if (localStorage.getItem("chat-app-user")) {
             getUser()
@@ -56,17 +64,23 @@ function Chat() {
 
     return (<>
         <Container>
+            <LogOut />
+
             <div className="Container">
                 <Contacts
                     contacts={contacts}
                     currentUser={currentUser}
                     handleChatChange={handleChatChange}
                 />
-                <Welcome
+                {isLoading && selecContacts === undefined ? (<Welcome
                     currentUser={currentUser}
-                >
+                ></Welcome>)
+                    :
+                    <ChatComponent
+                        selecContacts={selecContacts}
+                    ></ChatComponent>
+                }
 
-                </Welcome>
             </div>
 
         </Container>

@@ -8,16 +8,24 @@ import styled from "styled-components"
 
 
 
-function Welcome({ currentUser }) {
+
+
+function ChatComponent({ selecContacts }) {
+
 
 
 
 
     return (<>
 
+
         <Container>
-            <h1>Welcome, <span>{currentUser ? `${currentUser.username}` : ""}</span></h1>
-            <h3>pl select a chat to start Messsaging</h3>
+            <div className="chatHead">
+                <div className="userName">{selecContacts ? selecContacts.username : ""}</div>
+            </div>
+            <div className="chatmes"></div>
+            <div className="chatinput"></div>
+
         </Container>
 
     </>)
@@ -29,12 +37,19 @@ function Welcome({ currentUser }) {
 }
 
 const Container = styled.div`
+
 height: 80vh;
 flex-direction: column;
 justify-content: center;
 gap: 1rem;
+.userName{
+    font-size: 2rem;
+    padding: 1rem;
+    justify-content: center;
+    display: flex;
+    
 
-
+}
 `
 
 
@@ -44,4 +59,4 @@ gap: 1rem;
 
 
 
-export default Welcome
+export default ChatComponent
