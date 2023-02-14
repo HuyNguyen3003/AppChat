@@ -1,18 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios"
 import styled from "styled-components"
-// import "./SetAvatar.scss"
-import { allUserRouter } from "../utils/APIroutes";
+import { allUserRouter, host } from "../utils/APIroutes";
 import Contacts from "../component/Contacts"
 import Welcome from "../component/Welcome";
 import ChatComponent from "../component/ChatConponent";
 import LogOut from "../component/LogOut";
+import { io } from "socket.io-client"
 
 
 
 
 function Chat() {
+
+    const socket = useRef()
 
     const [contacts, setcontacts] = useState([])
     const [currentUser, setcurrentUser] = useState(undefined)
@@ -26,6 +28,12 @@ function Chat() {
         setselecContacts(userChat)
     }
 
+    useEffect(() => {
+        if (currentUser) {
+            socket.current = io(host)
+            socket.current.emit("add-user", currentUser._id)
+        }
+    }, [currentUser])
 
     useEffect(() => {
         const getUser = async () => {
@@ -65,7 +73,6 @@ function Chat() {
     return (<>
         <Container>
             <LogOut />
-
             <div className="Container">
                 <Contacts
                     contacts={contacts}
@@ -77,6 +84,8 @@ function Chat() {
                 ></Welcome>)
                     :
                     <ChatComponent
+                        currentUser={currentUser}
+                        socket={socket}
                         selecContacts={selecContacts}
                     ></ChatComponent>
                 }
@@ -101,7 +110,7 @@ align-items: center;
 
 
 .Container {
-    height: 85vh;
+   // height: 85vh;
      width: 85vw;
      background-color: rgb(118, 255, 250);
      display: grid;
