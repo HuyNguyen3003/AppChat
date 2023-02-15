@@ -1,5 +1,5 @@
-# appChat
-App chat realtime
+# AppChat
++ MERN Stack
 + FE
 + - Giao diện 
 (Chat)
