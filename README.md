@@ -11,8 +11,8 @@ App chat realtime
 + Scss, react, redux, styled-components, nodejs, express, mongoDB, localstorage.
 + ---------------------------------------------
 install db
-install fe: yarn add, yarn start
-install be: npm i, npm start
++install fe: yarn add, yarn start
++install be: npm i, npm start
 + ---------------------------------------------
 + Ảnh từ pj
 ![image](https://user-images.githubusercontent.com/94001149/218753934-94187e0a-2e01-447d-8cff-c2790c8be763.png)
