@@ -7,6 +7,7 @@ App chat realtime
 + - Model DB
 + - Api
 ( Đăng kí, đăng nhập)
++ ---------------------------------------------
 + Scss, react, redux, styled-components, nodejs, express, mongoDB, localstorage.
 + ---------------------------------------------
 install db
