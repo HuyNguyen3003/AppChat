@@ -8,7 +8,7 @@
 + - Api
 ( Đăng kí, đăng nhập)
 + ---------------------------------------------
-+ Scss, react, styled-components, nodejs, express, mongoDB, localstorage.
++ Scss, react, styled-components, nodejs, express, socket.io mongoDB, localstorage.
 + ---------------------------------------------
 install db
 + install fe: yarn add, yarn start
